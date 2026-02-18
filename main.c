@@ -10,7 +10,7 @@ int main(){
             for(int j=0; j<3; j++){
                 if(location[i][j]){
                     if(i == 0 && j == 0){
-                        printf("area 1\n");
+                        printf("There is a torrential downpour and lightning crackles in the sky\n");
                         printf("move right(d), or down(s), or quit(q): ");
                         scanf(" %c", &input);
                         if(input == 's'){
@@ -26,7 +26,7 @@ int main(){
                         }
                     }
                     if(i == 1 && j == 0){
-                        printf("area 2\n");
+                        printf("You come up to the side of a mountain \n");
                         printf("move up(w), right(d), or down(s), or quit(q): ");
                         scanf(" %c", &input);
                         if(input == 's'){
@@ -45,7 +45,7 @@ int main(){
                         }
                     }
                     if(i == 2 && j == 0){
-                        printf("area 3\n");
+                        printf("A lava stream blocks off your path \n");
                         printf("move right(d), or up(w), or quit(q): ");
                         scanf(" %c", &input);
                         if(input == 'w'){
@@ -102,7 +102,7 @@ int main(){
                         }
                     }
                     if(i == 2 && j == 1){
-                        printf("area 6\n");
+                        printf("A massive lake spreads out in front of you\n");
                         printf("move left(a), right(d), or up(w), or quit(q): ");
                         scanf(" %c", &input);
                         if(input == 'w'){
@@ -121,7 +121,7 @@ int main(){
                         }
                     }
                     if(i == 0 && j == 2){
-                        printf("area 7\n");
+                        printf("A river blocks off your path\n");
                         printf("move left(a), or down(s), or quit(q): ");
                         scanf(" %c", &input);
                         if(input == 's'){
@@ -137,7 +137,7 @@ int main(){
                         }
                     }
                     if(i == 1 && j == 2){
-                        printf("area 8\n");
+                        printf("The path goes through a dark cave\n");
                         printf("move left(a), up(w), or down(s), or quit(q): ");
                         scanf(" %c", &input);
                         if(input == 's'){
