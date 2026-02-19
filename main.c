@@ -1,9 +1,12 @@
 //test
 #include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
 int main(){
     int location[3][3] = {{0,0,0},{0,1,0},{0,0,0}};
     int running = 1;
     char input = 'q';
+    srand(time(NULL));
 
     while(running){
         for(int i=0; i < 3; i++){
@@ -168,6 +171,16 @@ int main(){
                         }else if(input == 'q'){
                             running = 0;
                         }else if(input == 'e'){
+                            int num = rand() % 101;
+                            if(num > 75){
+                                printf("Confetti shoots into the sky\n");
+                            }else if(num >50){
+                                printf("Lightning strikes a tree next to you\n");
+                            }else if(num > 25){
+                                printf("The Northern Lights appear in the sky\n");
+                            }else{
+                                printf("Nothing happens\n");
+                            }
                         }else{
                             printf("invalid input\n");
                         }
