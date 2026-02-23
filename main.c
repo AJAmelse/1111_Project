@@ -1,21 +1,31 @@
-//test
+/*
+ * CSCI 1111 Project 1
+ * Artemis, Jude, Cameron
+ *
+ * */
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 int main(){
+    //store player location as 3x3 grid of booleans
     int location[3][3] = {{0,0,0},{0,1,0},{0,0,0}};
     int running = 1;
     char input = 'q';
+    //set rand seed to unix timestamp to have variable output from program
     srand(time(NULL));
 
     while(running){
+        //check through all values of 2d location array
         for(int i=0; i < 3; i++){
             for(int j=0; j<3; j++){
+                //check if current value is set to true
                 if(location[i][j]){
+                    //different output based on location
                     if(i == 0 && j == 0){
                         printf("There is a torrential downpour and lightning crackles in the sky\n");
                         printf("move right(d), or down(s), or quit(q): ");
                         scanf(" %c", &input);
+                        //change position in array
                         if(input == 's'){
                             location[i][j] = 0;
                             location[i+1][j] = 1;
