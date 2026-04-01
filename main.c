@@ -6,12 +6,16 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
+#include "inventory.h"
+
 int main(){
     //store player location as 3x3 grid of booleans
     enum location {downpour, mountain, lava, snow, forest, lake, river, cave, button};
     enum location current = forest;
     int running = 1;
     char input = 'q';
+    Inventory* inventory = new_inventory(20, 5);
+    char* item = malloc(sizeof(char)*inventory->str_length);
     //set rand seed to unix timestamp to have variable output from program
     srand(time(NULL));
 
@@ -81,7 +85,7 @@ int main(){
                 break;
             case forest:
                 printf("You are standing in the center of a forest path splitting in 4 directions\n");
-                printf("move up(w), left(a), right(d), or down(s): ");
+                printf("list inventory(r), add to inventory(t), move up(w), left(a), right(d), or down(s): ");
                 scanf(" %c", &input);
                 if(input == 'w'){
                     current = snow;
@@ -91,11 +95,19 @@ int main(){
                     current = mountain;
                 }else if(input == 'd'){
                     current = cave;
+                }else if(input == 'r'){
+                    printInventory(inventory);
+                }else if(input == 't'){
+                    printf("Item to add: ");
+                    scanf(" %[^\n]s", item);
+                    printf("%s\n", item);
+                    addItem(inventory, item);
                 }else if(input == 'q'){
                     running = 0;
                 }else{
                     printf("invalid input\n");
                 }
+                break;
             case lake:
                 printf("A massive lake spreads out in front of you\n");
                 printf("move left(a), right(d), or up(w), or quit(q): ");

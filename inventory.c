@@ -1,6 +1,6 @@
 #include "inventory.h"
 #include <stddef.h>
-#include <stdlib.h>
+#include <stdio.h>
 
 Inventory* new_inventory(size_t str_len, size_t max_items){
     Inventory* new_storage = malloc(sizeof(Inventory));
@@ -19,8 +19,21 @@ Inventory* new_inventory(size_t str_len, size_t max_items){
 
 int addItem(Inventory* self, char* item){
     if(self->item_count < self->max_items){
-        self->contents[self->item_count++ * self->str_length] = *item;
+        for(int i = 0; i < self->str_length; i++){
+            self->contents[self->item_count * self->str_length + i] = item[i];
+        }
+        self->item_count++;
         return 1;
     }
     return 0;
+}
+
+void printInventory(Inventory* self){
+    for(int i = 0; i < self->item_count; i++){
+        for(int j = 0; j < self->str_length; j++){
+            printf("%c", self->contents[j + (i*self->str_length)]);
+        }
+        printf(" ");
+    }
+    printf("\n");
 }
