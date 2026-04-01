@@ -85,7 +85,7 @@ int main(){
                 break;
             case forest:
                 printf("You are standing in the center of a forest path splitting in 4 directions\n");
-                printf("list inventory(r), add to inventory(t), move up(w), left(a), right(d), or down(s): ");
+                printf("remove item(c), list inventory(r), add to inventory(t), move up(w), left(a), right(d), or down(s): ");
                 scanf(" %c", &input);
                 if(input == 'w'){
                     current = snow;
@@ -102,6 +102,18 @@ int main(){
                     scanf(" %[^\n]s", item);
                     printf("%s\n", item);
                     addItem(inventory, item);
+                }else if(input == 'c'){
+                    printf("item to remove: ");
+                    scanf(" %[^\n]s", item);
+                    printf("Index of item to remove: ");
+                    int index = 0;
+                    scanf(" %d", &index);
+                    if(hasItem(inventory, item)){
+                        removeItem(inventory, index);
+                    }
+                    else{
+                        printf("Not in inventory\n");
+                    }
                 }else if(input == 'q'){
                     running = 0;
                 }else{

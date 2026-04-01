@@ -13,7 +13,9 @@ Inventory* new_inventory(size_t str_len, size_t max_items);
 
 int addItem(Inventory* self, char* item);
 
-int removeItem(Inventory* self, char* item);
+void removeItem(Inventory* self, int index);
+
+int hasItem(Inventory* self, char* item);
 
 void printInventory(Inventory* self);
 
