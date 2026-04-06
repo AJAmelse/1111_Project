@@ -43,7 +43,7 @@ int hasItem(Inventory* self, char* item){
     int inArray = 0;
     for(int i = 0; i < self->item_count; i++){
         if(strcmp(item, &(self->contents[i * self->str_length])) == 0){
-            inArray++;
+            inArray = i + 1;
         } 
     }
     return inArray;
@@ -57,4 +57,10 @@ void removeItem(Inventory* self, int index){
 
     }
     self->item_count--;
+}
+
+void freeInventory(Inventory** self){
+    free((*self)->contents);
+    (*self)->contents = NULL;
+    free(*self);
 }
