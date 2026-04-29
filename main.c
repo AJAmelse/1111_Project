@@ -37,7 +37,7 @@ int main(){
     int running = 1;
     char input = 'q';
     Inventory* inventory = new_inventory(20, 5);
-    char* item = malloc(sizeof(char)*inventory->str_length);
+    char* item = (char*)malloc(sizeof(char)*inventory->str_length);
     //set rand seed to unix timestamp to have variable output from program
     srand(time(NULL));
     int caveLit = 0;
