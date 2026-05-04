@@ -75,7 +75,7 @@ bool actions(Area* area, Area * areas, Inventory* inventory, bool* lightningRodP
                 }else if(desiredArea == "button"){
                     *area = areas[8];
                 }else if(desiredArea == "win"){
-                    cout << "YOU WIN!!!!";
+                    cout << "YOU WIN!!!!\n";
                     return false;
                 }
             }
@@ -112,6 +112,7 @@ bool actions(Area* area, Area * areas, Inventory* inventory, bool* lightningRodP
                 if(item == area->getRequiredKey()){
                     if(useItem(item, inventory)){
                         area->connectToArea("cave");
+                        areas[5].connectToArea("cave");
                     }else{
                         cout << "item not in inventory\n";
                     }
@@ -207,7 +208,7 @@ int main(){
     areas[8].setConnectedAreas({"snow"});
 
 
-    currentArea = &areas[4];
+    *currentArea = areas[4];
 
     while(running){
        running = actions(currentArea, areas, inventory, lightningRodPlaced); 
